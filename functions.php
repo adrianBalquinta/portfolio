@@ -8,5 +8,14 @@ function my_custom_theme_setup() {
     'primary' => 'Primary Menu',
   ));
 }
+
+
+function my_custom_features(){
+
+    add_theme_support( 'title-tag');
+}
+    
+
 add_action('after_setup_theme', 'my_custom_theme_setup');
+add_action('after_setup_theme', 'my_custom_features' );
 ?>
