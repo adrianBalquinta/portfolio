@@ -76,14 +76,7 @@ function my_widgets(){
   );
 
 } 
-/*
-function my_custom_features(){
-   // register_nav_menus('headerMenu', 'Header Menu');
-  //  register_nav_menus('headerMenu2', 'Header Menu 2');
-  add_theme_support( 'title-tag');
-  add_theme_support('menus');
 
-}*/
     
 add_action('wp_enqueue_scripts','portfolio_files');
 add_action('after_setup_theme','my_custom_theme_setup');
