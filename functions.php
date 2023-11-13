@@ -11,7 +11,7 @@ function portfolio_files() {
   wp_enqueue_script('bootstrap', get_theme_file_uri('/assets/vendors/bootstrap/bootstrap.bundle.js'), array('jquery'), '4.3.1', true);
   wp_enqueue_script('bootstrap-affix', get_theme_file_uri('/assets/vendors/bootstrap/bootstrap.affix.js'), array('jquery'), '3.3.6', true);
   wp_enqueue_script('isotope', get_theme_file_uri('/assets/vendors/isotope/isotope.pkgd.js'), array('jquery'), '3.0.6', true);
-  wp_enqueue_script('maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap', array(), '1', true);
+  //wp_enqueue_script('maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCtme10pzgKSPeJVJrG1O3tjR6lk98o4w8&callback=initMap', array(), '1', true);
   
   //JohnDoe js
   wp_enqueue_script('john-doe-js', get_theme_file_uri('/assets/js/johndoe.js'), array(), '1.0', true);
