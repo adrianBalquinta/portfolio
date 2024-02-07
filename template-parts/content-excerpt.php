@@ -76,35 +76,35 @@ if(get_post_type( get_the_ID() ) == "resume"){
                             </div>
                         </div>
                         <div class="card-body pb-2">
-                            <h6><?php the_field('skill1'); ?></h6>
+                            <h6><?php echo get_field('skill1'); ?></h6>
                             <div class="progress mb-3">
                                 <div class="progress-bar bg-danger" role="progressbar" style="width: <?php the_field('skill_percent1'); ?>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <h6><?php the_field('skill2'); ?></h6>
+                            <h6><?php echo get_field('skill2'); ?></h6>
                             <div class="progress mb-3">
                                 <div class="progress-bar bg-danger" role="progressbar" style="width: <?php the_field('skill_percent2'); ?>%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                           <h6><?php the_field('skill3'); ?></h6>
+                           <h6><?php echo get_field('skill3'); ?></h6>
                             <div class="progress mb-3">
                                 <div class="progress-bar bg-danger" role="progressbar" style="width: <?php the_field('skill_percent3'); ?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <h6><?php the_field('skill4'); ?></h6>
+                            <h6><?php echo get_field('skill4'); ?></h6>
                             <div class="progress mb-3">
                                 <div class="progress-bar bg-danger" role="progressbar" style="width: <?php the_field('skill_percent4'); ?>%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <h6><?php the_field('skill5'); ?></h6>
+                            <h6><?php echo get_field('skill5'); ?></h6>
                             <div class="progress mb-3">
                                 <div class="progress-bar bg-danger" role="progressbar" style="width: <?php the_field('skill_percent5'); ?>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <h6><?php the_field('skill6'); ?></h6>
+                            <h6><?php echo get_field('skill6'); ?></h6>
                             <div class="progress mb-3">
                                 <div class="progress-bar bg-danger" role="progressbar" style="width: <?php the_field('skill_percent6'); ?>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <h6><?php the_field('skill7'); ?></h6>
+                            <h6><?php echo get_field('skill7'); ?></h6>
                             <div class="progress mb-3">
                                 <div class="progress-bar bg-danger" role="progressbar" style="width: <?php the_field('skill_percent7'); ?>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            <h6><?php the_field('skill8'); ?></h6>
+                            <h6><?php echo get_field('skill8'); ?></h6>
                             <div class="progress mb-3">
                                 <div class="progress-bar bg-danger" role="progressbar" style="width: <?php the_field('skill_percent8'); ?>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
@@ -160,10 +160,7 @@ if(get_post_type( get_the_ID() ) == "resume"){
                 <h6 class="title text-danger"><?php the_field('start_date1'); echo ' - '; the_field('end_date1'); ?></h6>
                 <P><?php the_field('degree_education1'); ?></P>
                 <P class="subtitle"><?php the_field('university1'); ?></P>
-                <!--<hr>
-                <h6 class="title text-danger">2006 - 2011</h6>
-                <P>High School Degree</P>
-                <P class="subtitle">Juan Pedro Esnaola High School (Buenos Aires, Argentina)</P>-->
+                
                 
             </div>
             </div>
@@ -216,16 +213,19 @@ if(get_post_type( get_the_ID() ) == "resume"){
 
 if(get_post_type( get_the_ID() ) == "portfolio"){
     $category=get_field('project_category');
-    $image = get_field('image');    ?>
-<div class="col-md-6 col-lg-4 <? echo strtolower($category) ?> all">
+    $image =(! empty(get_field('image_1'))) 
+            ? get_field('image_1') 
+            : get_field('image');?>
+<div class="col-md-6 col-lg-4 <? echo strtolower($category)?> all">
     <div class="portfolio-item">
         <img src="<?php echo $image['url']; ?>" class="img-fluid" alt="">
         <div class="content-holder">
-            <a class="img-popup" href="#"></a>
+            <a class="img-popup" href="<?php the_permalink(); ?>">
             <div class="text-holder">
                 <h5 class="title"><?php the_title(); ?></h5>
-                <p class="subtitle"><?php the_field('description'); ?></p>
+                <p class="subtitle"><?php the_field('gallery_description'); ?></p>
             </div>
+            </a>
         </div>   
     </div>             
 </div>
