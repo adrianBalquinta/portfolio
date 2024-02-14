@@ -22,13 +22,13 @@ if ( is_page() ) {
 
     <p class="tag-line sub-title"><?php echo get_the_date( 'M d, Y' ); ?></p>
     <?php
-    the_title('<h1 class="page-title">', '</h1>');
+    the_title('<h1 class="page-title" id="page-title">', '</h1>');
 
 } elseif ( ! is_front_page() && is_home() ) {
 
     // in WP settings you can set a page as the Posts Page
             // This will return the ID of the Page assigned to display the Blog Posts Index
-    echo('hola');        
+   
     $portfolio_blog_title = get_the_title( get_option( 'page_for_posts', true ) );
 
     ?>
