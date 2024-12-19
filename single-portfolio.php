@@ -11,93 +11,182 @@
  */
 
  get_header();
+ $blog_info = get_bloginfo('name');
+ $description = get_bloginfo('description','display');
  ?>
 
-<section class="projects">
-    <div class="content-area">
-        <div class="container">
-            <div class="row">
+
 <?php
                 if( have_posts()){
 
                     while( have_posts() ){
                         the_post();
             ?>
-                    <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    <section id="post-<?php the_ID(); ?>" <?php post_class('section blog-wrapper sect-pt4'); ?>>
 <?php 
                         if(has_post_thumbnail()){
                             the_post_thumbnail('full');
                         } ?>
-                        <button class="btn btn-primary btn-rounded"><i class="ti-eye pr-2"></i>Watch Front-End Live</button>
-                        <button class="btn btn-primary btn-rounded"><i class="ti-eye pr-2"></i>Watch Back-End Live</button>
-                        <div class="mt-2">
-                            <h2><?php the_field('title_1');?></h2>
-                            <span class="line"></span>  
-                        </div>
-                        <p class="post-description"> <?php the_field('description_1');?></p>
-                        <h3 class="features">Key Features:</h3>
-                        <h4 class="feature-title"><?php the_field('title_2');?></h4>
-                        <p class="feature-description"> <?php the_field('description_2');?></p>
+  <div class="text-center my-4">
+    <a href="<?php echo home_url('#Portfolio'); ?>" class="btn btn-primary">
+        ← Back to Home
+    </a>
+  </div>
+  
+  <!--/ Section Blog-Single Star /-->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="post-box">
+            <div class="post-meta">
+              <h1 class="article-title"><?php the_field('title_1');?></h1>
+              <ul>
+                <li>
+                  <span class="ti-user"></span>
+                  <a href="#"><?php echo $blog_info;?></a>
+                </li>
+                <li>
+                  <span class="ti-world"></span>
+                  <a href="#"><?php echo $description;?></a>
+                </li>
+              </ul>
+            </div>
+            <div class="article-content">
+              <p>
+                <?php the_field('description_1');?>
+              </p>
+              <?php if(!empty(get_field('image_2'))) $image=get_field('image_2'); ?>
+              <a href="<?php echo  $image['url'];?>" target="_blank">
+                <img src="<?php echo  $image['url'];?>" class="img-fluid post-thumb" alt="">
+              </a>  
+              <blockquote class="blockquote-blog">
+                <p class="mb-0"><?php the_field('title_2');?></p>
+              </blockquote>
+              <p>
+                <?php the_field('description_2');?>
+              </p>
+              <?php if(!empty(get_field('image_3'))) $image1=get_field('image_3'); ?>
+              <a href="<?php echo  $image1['url'];?>" target="_blank">
+                <img src="<?php echo  $image1['url'];?>" class="img-fluid post-thumb" alt="">
+              </a>
+              <blockquote class="blockquote-blog">
+                <p class="mb-0"><?php the_field('title_3');?></p>
+              </blockquote>
+              <p>
+                <?php the_field('description_3');?>
+              </p>
+              <?php if(!empty(get_field('image_4'))) $image2=get_field('image_4'); ?>
+              <a href="<?php echo  $image2['url'];?>" target="_blank">
+                <img src="<?php echo  $image2['url'];?>" class="img-fluid post-thumb" alt="">
+              </a>
+              <blockquote class="blockquote-blog">
+                <p class="mb-0"><?php the_field('title_4');?></p>
+              </blockquote>
+              <p>
+                <?php the_field('description_4');?>
+              </p>
+              <?php if(!empty(get_field('image_5'))) $image3=get_field('image_5'); ?>
+              <a href="<?php echo  $image3['url'];?>" target="_blank">
+                <img src="<?php echo  $image3['url'];?>" class="img-fluid post-thumb" alt="">
+              </a>
+              <blockquote class="blockquote-blog">
+                <p class="mb-0"><?php the_field('title_5');?></p>
+              </blockquote>
+              <p>
+                <?php the_field('description_5');?>
+              </p>
+              <?php if(!empty(get_field('image_6'))) $image4=get_field('image_6'); ?>
+              <a href="<?php echo  $image4['url'];?>" target="_blank">
+                <img src="<?php echo  $image4['url'];?>" class="img-fluid post-thumb" alt="">
+              </a>
+            </div>
+          </div>
+        </div>
+        <!--<div class="col-md-4">
+          <div class="widget-sidebar">
+            <h5 class="sidebar-title">Recent Post</h5>
+            <div class="sidebar-content">
+              <ul class="list-sidebar">
+                <li>
+                  <a href="#">Atque placeat maiores.</a>
+                </li>
+                <li>
+                  <a href="#">Lorem ipsum dolor sit amet consectetur</a>
+                </li>
+                <li>
+                  <a href="#">Nam quo autem exercitationem.</a>
+                </li>
+                <li>
+                  <a href="#">Atque placeat maiores nam quo autem</a>
+                </li>
+                <li>
+                  <a href="#">Nam quo autem exercitationem.</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="widget-sidebar">
+            <h5 class="sidebar-title">Archives</h5>
+            <div class="sidebar-content">
+              <ul class="list-sidebar">
+                <li>
+                  <a href="#">September, 2017.</a>
+                </li>
+                <li>
+                  <a href="#">April, 2017.</a>
+                </li>
+                <li>
+                  <a href="#">Nam quo autem exercitationem.</a>
+                </li>
+                <li>
+                  <a href="#">Atque placeat maiores nam quo autem</a>
+                </li>
+                <li>
+                  <a href="#">Nam quo autem exercitationem.</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="widget-sidebar widget-tags">
+            <h5 class="sidebar-title">Tags</h5>
+            <div class="sidebar-content">
+              <ul>
+                <li>
+                  <a href="#">Web.</a>
+                </li>
+                <li>
+                  <a href="#">PrestaShop.</a>
+                </li>
+                <li>
+                  <a href="#">PHP.</a>
+                </li>
+                <li>
+                  <a href="#">Photoshop</a>
+                </li>
+                <li>
+                  <a href="#">Corel Draw</a>
+                </li>
+                <li>
+                  <a href="#">JavaScript</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  <!--/ Section Blog-Single End /-->
 
-                        
-                        <!-- BootStrap Carousel -->
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img class="d-block w-100" src="<?php if(! empty(get_field('image_2'))){
-                              $image=get_field('image_2');
-                              echo  $image['url'];
-                            } ?>" alt="First slide">
-                          </div>
-                          <div class="carousel-item">
-                            <img class="d-block w-100" src="<?php if(! empty(get_field('image_3'))){
-                              $image=get_field('image_3');
-                              echo  $image['url'];
-                            } ?>" alt="Second slide">
-                          </div>
-                          <div class="carousel-item">
-                            <img class="d-block w-100" src="<?php if(! empty(get_field('image_4'))){
-                              $image=get_field('image_4');
-                              echo  $image['url'];
-                            } ?>" alt="Third slide">
-                          </div>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="sr-only">Next</span>
-                        </a>
-                        </div><!-- end Carousel -->
-
-
-                        <h4 class="feature-title"><?php the_field('title_3');?></h4>
-                        <p class="feature-description"> <?php the_field('description_3');?></p>
-                        <h4 class="feature-title"><?php the_field('title_4');?></h4>
-                        <p class="feature-description"> <?php the_field('description_4');?></p>
-                        <h4 class="feature-title"><?php the_field('title_5');?></h4>
-                        <p class="feature-description"> <?php the_field('description_5');?></p>
-                        <h4 class="feature-title"><?php the_field('title_2');?></h4>
-                        <p class="feature-description"> <?php the_field('description_2');?></p>
-
-                        
-                    </article>
+                        </section>
+            
+                   
 <?php               }
             }else{
                 get_template_part('template-parts/content','none');
             } ?>
 
-            </div>
-        </div>
-    </div>
-</section>
+
+
  <!--end single post-->
 
  <?php 
