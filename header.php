@@ -20,12 +20,13 @@
     </header>
     <?php
     require_once get_template_directory() . '/classes/Class_bootstrap_navwalker.php';
-    ?>
+if (!is_singular('portfolio')) {?>
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white" data-spy="affix" data-offset-top="510" id="navbar">
         <div class="container">
             <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <div class="collapse mt-sm-20 navbar-collapse" id="navbarSupportedContent">
             <?php
 
                 wp_nav_menu(array(
@@ -41,6 +42,7 @@
                     'walker' => new Custom_NavWalker() // Custom nav walker for Bootstrap compatibility
                 ));?>
 
-
+            </div>
         </div>
     </nav> 
+<?php } ?>
