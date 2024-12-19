@@ -44,12 +44,15 @@ if(get_the_title()== 'Personal Info'){?>
         <span class="line mb-5"></span>
         <ul class="mt40 info list-unstyled">
             <li><span>Email</span> : <?php the_field('email'); ?></li>
+            <li><span>Address</span> : <?php the_field('address'); ?></li>
+            <li><span>Github</span> : <?php the_field('github'); ?></li>
         </ul>
         <ul class="social-icons pt-3">
             <li class="social-item"><a class="social-link" href="<?php the_field('youtube_link'); ?>" target="_blank"><?php the_field('youtube_icon'); ?></a></li>
             <li class="social-item"><a class="social-link" href="<?php the_field('linkedin_link'); ?>" target="_blank"><?php the_field('linkedin_icon'); ?></a></li>
             <li class="social-item"><a class="social-link" href="<?php the_field('github_link'); ?>" target="_blank"><?php the_field('github_icon'); ?></a></li>
-        </ul>  
+        </ul>
+        <?php the_field('download_link'); ?>  
     </div>
 <?php } 
 
@@ -59,12 +62,13 @@ if(get_the_title()== 'Personal Info'){?>
                     <span class="line mb-5"></span>
                     <h5 class="mb-3"><?php the_field('who-subtitle'); ?></h5>
                     <p class="mt-20"><?php the_field('who-description'); ?></p>
-                    <?php the_field('button_download'); ?>
+                    <?php //the_field('button_download'); ?>
                 </div>
 <?php }
 }
-
+/*
 if(get_post_type( get_the_ID() ) == "resume"){
+    
     if(get_the_title()== 'Skills'){?>
 
                 <div class="col-lg-4">
@@ -159,8 +163,8 @@ if(get_post_type( get_the_ID() ) == "resume"){
             <div class="card-body">
                 <h6 class="title text-danger"><?php the_field('start_date1'); echo ' - '; the_field('end_date1'); ?></h6>
                 <P><?php the_field('degree_education1'); ?></P>
-                <P class="subtitle"><?php the_field('university1'); ?></P>
-                
+                <P><?php the_field('mayor_subject1'); ?></P>
+                <P class="subtitle"><a href="<?php the_field('link_1'); ?>" target="_blank"><?php the_field('university1'); ?></a></P>
                 
             </div>
             </div>
@@ -209,7 +213,103 @@ if(get_post_type( get_the_ID() ) == "resume"){
                         </div>
                                     <?php }
         }
-}   
+}*/   
+
+// Check for 'section' context passed from the index file
+$section = isset($args['section']) ? $args['section'] : '';
+// Render content based on section
+if ($section === 'work1') { ?>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4><?php the_title(); ?></h4>
+            <span class="line"></span>
+        </div>
+        <div class="card-body">
+            <h6 class="title text-danger"><?php the_field('start_date1'); echo ' - '; the_field('end_date1'); ?></h6>
+            <p><?php the_field('job_title1'); ?></p>
+            <p class="subtitle"><a href="<?php the_field('company_link1'); ?>" target="_blank"><?php the_field('company1'); ?></a></p>
+            <ul>
+                <?php
+                    if(have_rows('description1')){
+                        $fields=get_field('description1');
+                        foreach($fields as $field){
+                            if(strlen($field) > 0) echo '<li>'.$field.'</li>';
+                        }
+                    }
+                ?>
+            </ul>
+        </div>
+    </div>
+<?php } elseif ($section === 'work2') { ?>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4><?php the_title(); ?></h4>
+            <span class="line"></span>
+        </div>
+        <div class="card-body">
+            <h6 class="title text-danger"><?php the_field('start_date2'); echo ' - '; the_field('end_date2'); ?></h6>
+            <p><?php the_field('job_title2'); ?></p>
+            <p class="subtitle"><a href="<?php the_field('company_link2'); ?>" target="_blank"><?php the_field('company2'); ?></a></p>
+            <ul>
+                <?php
+                    if(have_rows('description2')){
+                        $fields=get_field('description2');
+                        foreach($fields as $field){
+                            if(strlen($field) > 0) echo '<li>'.$field.'</li>';
+                        }
+                    }
+                ?>
+            </ul>
+        </div>
+    </div>
+<?php } elseif ($section === 'education') { ?>
+    <div class="card mb-4">
+        <div class="card-header">
+            <h4><?php the_title(); ?></h4>
+            <span class="line"></span>
+        </div>
+        <div class="card-body">
+            <h6 class="title text-danger"><?php the_field('start_date1'); echo ' - '; the_field('end_date1'); ?></h6>
+            <p><?php the_field('degree_education1'); ?></p>
+            <p><?php the_field('mayor_subject1'); ?></p>
+            <p class="subtitle"><a href="<?php the_field('link_1'); ?>" target="_blank"><?php the_field('university1'); ?></a></p>
+        </div>
+    </div>
+<?php } elseif ($section === 'skills') { ?>
+    <div class="card mb-4 flex-grow-1">
+        <div class="card-header">
+            <h4><?php the_title(); ?></h4>
+            <span class="line"></span>
+        </div>
+        <div class="card-body pb-2">
+            <?php for ($i = 1; $i <= 8; $i++) {
+                if (get_field('skill' . $i)) { ?>
+                    <h6><?php echo esc_html(get_field('skill' . $i)); ?></h6>
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: <?php the_field('skill_percent' . $i); ?>%;" aria-valuenow="<?php the_field('skill_percent' . $i); ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+            <?php }
+            } ?>
+        </div>
+    </div>
+<?php } elseif ($section === 'languages') { ?>
+    <div class="card mt-auto">
+        <div class="card-header">
+            <h4><?php the_title(); ?></h4>
+            <span class="line"></span>
+        </div>
+        <div class="card-body pb-2">
+            <?php for ($i = 1; $i <= 3; $i++) {
+                if (get_field('language_' . $i)) { ?>
+                    <h6><?php the_field('language_' . $i); ?></h6>
+                    <div class="progress mb-3">
+                        <div class="progress-bar bg-danger" role="progressbar" style="width: <?php the_field('language_percentage_' . $i); ?>%;" aria-valuenow="<?php the_field('language_percentage_' . $i); ?>" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+            <?php }
+            } ?>
+        </div>
+    </div>
+<?php } 
 
 if(get_post_type( get_the_ID() ) == "portfolio"){
     $category=get_field('project_category');
