@@ -316,7 +316,7 @@ if(get_post_type( get_the_ID() ) == "portfolio"){
     $image =(! empty(get_field('image_1'))) 
             ? get_field('image_1') 
             : get_field('image');?>
-<div class="col-md-6 col-lg-4 <? echo strtolower($category)?> all">
+<div class="col-md-6 col-lg-4 <?php echo strtolower($category)?> all">
     <div class="portfolio-item">
         <img src="<?php echo $image['url']; ?>" class="img-fluid" alt="">
         <div class="content-holder">
