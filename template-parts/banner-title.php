@@ -44,7 +44,7 @@ if ( is_page() ) {
 <?php    
     if ( $description ) {?>
         <h6 class="header-mono" ><?php echo esc_html( $description ) ?></h6>
-        <button class="btn btn-primary btn-rounded"><i class="ti-printer pr-2"></i>Print Resume</button>
+        <!--<button class="btn btn-primary btn-rounded"><i class="ti-printer pr-2"></i>Print Resume</button>-->
 <?php
     }?>
 
