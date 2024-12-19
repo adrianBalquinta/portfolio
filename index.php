@@ -15,7 +15,7 @@
 
 get_header();
 ?>
-
+    <h1>Hello</h1>
     <div class="container-fluid">
         <div id="About" class="row about-section">
     
