@@ -11562,9 +11562,10 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 .header .header-content .header-title {
   font-size: calc(40px + (120 - 40) * ((100vw - 300px) / (1600 - 300)));
   font-weight: bold;
-  line-height: .7;
+  line-height: 1.2;
   margin-bottom: 25px;
   color: inherit;
+  word-wrap: break-word;
 }
 
 .header .header-content .header-mono {
@@ -11587,6 +11588,10 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   }
   .header .header-content .header-mono {
     letter-spacing: 2px;
+  }
+  .header .header-content .header-title {
+    font-size: 2.5rem; /* Adjust font size for smaller screens */
+    line-height: 1.4; /* Ensure enough spacing between lines */
   }
 }
 
