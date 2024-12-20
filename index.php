@@ -228,7 +228,7 @@ get_header();
                                 <i class="ti-envelope icon-md"></i>
                             </div>
                             <div class="col-10">
-                                <h6 class="d-inline">Email :<br> <span class="text-muted">adrian.balquinta@gmail.com</span></h6>
+                                <h6 class="d-inline">Email :<br> <span class="text-muted">contact@adrianwebsolutions.com</span></h6>
                             </div>
                         </div>
                         <ul class="social-icons pt-4">
