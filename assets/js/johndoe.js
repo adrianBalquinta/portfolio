@@ -70,8 +70,8 @@ $(window).on("load", function() {
     const singlePageClass = document.getElementById('page-title');
     const header = document.getElementById('header')
 
-    // Check if the body element has a specific class indicating the type of page
-    if (singlePageClass.classList.contains('page-title')) {
+    // Check if the page-title element exists and has the specific class
+    if (singlePageClass && singlePageClass.classList.contains('page-title')) {
         // If it's a sigle post page, change the class of a specific element
         header.classList.add('blog-header')
         header.classList.remove('header')

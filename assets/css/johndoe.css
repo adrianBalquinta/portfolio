@@ -60,6 +60,10 @@ body {
   background-color: #fff;
 }
 
+body { 
+  outline: 1px solid red; 
+}
+
 [tabindex="-1"]:focus {
   outline: 0 !important;
 }
@@ -11628,6 +11632,9 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 
 .about-section {
   border-bottom: 1px solid #dee2e6;
+  max-width: 100%;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .about-section .about-card {
