@@ -12135,12 +12135,13 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   color: #fff;
 }
 
-.wpcf7-response-output{
-  background-color: #28a745;
-  color: white;
+.wpcf7 form.invalid .wpcf7-response-output, .wpcf7 form.unaccepted .wpcf7-response-output, .wpcf7 form.payment-required .wpcf7-response-output {
+  color: red;
+  background: #ffb900;
+  border-color: #ffb900;
 }
 
-.wpcf7 form .wpcf7-response-output{
-  background-color: #28a745;
-  color: white;
+.wpcf7 form .wpcf7-response-output {
+  color: black;
+  border-color: #ffb900;
 }
