@@ -12134,3 +12134,7 @@ border: 1px solid rgba(255, 255, 255, 0.3);
 .widget-tags ul li a {
   color: #fff;
 }
+
+.wpcf7-response-output{
+  background-color: #ffffff;
+}
