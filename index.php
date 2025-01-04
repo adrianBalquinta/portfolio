@@ -218,7 +218,11 @@ get_header();
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-<?php               echo do_shortcode("[contact-form]"); ?>
+<?php               //echo do_shortcode("[contact-form]");
+                    echo do_shortcode('[contact-form-7 id="af80b8b" title="portfolio-contact-form-7"]'); // test
+                    //echo do_shortcode('[contact-form-7 id="9a471ef" title="portfolio-contact-form-7"]'); //production
+
+?>
                 </div>
                 <div class="col-lg-4">
                     <div class="contact-info-card">
