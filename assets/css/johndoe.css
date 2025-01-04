@@ -12139,3 +12139,8 @@ border: 1px solid rgba(255, 255, 255, 0.3);
   background-color: #28a745;
   color: white;
 }
+
+.wpcf7 form .wpcf7-response-output{
+  background-color: #28a745;
+  color: white;
+}
