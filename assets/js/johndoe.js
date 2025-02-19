@@ -77,3 +77,14 @@ $(window).on("load", function() {
         header.classList.remove('header')
     }
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.wpcf7-form-control').forEach(function(input) {
+        if (input.hasAttribute("size")) {
+            input.removeAttribute("size"); // Remove fixed size
+        }
+        input.style.width = "100%"; // Force full-width
+        input.style.maxWidth = "600px"; // Set a reasonable max width
+    });
+});
